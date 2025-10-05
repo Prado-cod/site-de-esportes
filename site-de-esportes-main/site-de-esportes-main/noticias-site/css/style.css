@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+/* Botão */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #D0ffc4;
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sidebar fechada */
+.sidebar {
+  position: fixed;
+  left: -220px; /* escondida */
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: #D0ffc4;
+  color: black;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+/* Sidebar aberta */
+.sidebar.active,
+.sidebar:hover {
+  left: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.sidebar nav a:hover {
+  background: #444;
+  padding-left: 5px;
+}
+
+/* Conteúdo */
+.content {
+  margin-left: 60px; /* espaço mínimo */
+  padding: 20px;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.active ~ .content,
+.sidebar:hover ~ .content {
+  margin-left: 240px; /* empurra o conteúdo quando menu abre */
+}
+
+/* Grid de cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  padding: 40px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.red { background: #e74c3c; }
+.cyan { background: #00bcd4; }
+.pink { background: #e91e63; }
+.blue { background: #3498db; }

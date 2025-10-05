@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogos - Portal de Notícias</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+  <aside class="sidebar" id="sidebar">
+    <br>
+    <br>
+    <br>
+    <h2>Menu</h2>
+    <nav>
+      <a href="dashboard.html">Voltar</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Jogos</h1>
+    <div class="grid">
+      <div class="card red">jogos de hoje</div>
+      <div class="card cyan">jogos de amanhã</div>
+
+    </div>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
