@@ -26,7 +26,7 @@ body {
 
 .left {
   flex: 1;
-  background: #A2BD9A;
+  background: #126a36;
   color: white;
   padding: 40px;
   display: flex;
@@ -44,6 +44,7 @@ body {
   padding: 12px;
   margin: 8px auto;
   border: none;
+  border: 1px solid #000000;
   border-radius: 5px;
   display: block;
   display: flex;
@@ -87,7 +88,7 @@ body {
   width: 60%;
   padding: 12px;
   margin: 8px auto;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 5px;
   display: block;
 }
@@ -99,7 +100,7 @@ body {
   border: none;
   border-radius: 5px;
   background: #333;
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
