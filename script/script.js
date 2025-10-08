@@ -6,8 +6,6 @@ const API_URL_BASE = "https://api.football-data.org/v4/competitions/PL";
 const HEADERS = {
     'X-Auth-Token': API_KEY, 
     'Content-Type': 'application/json',
-    // ESTA É A LINHA QUE PRECISA SER ADICIONADA:
-    'User-Agent': 'MeuProjetoAcademicoPL' 
 };
 
 const TABELA_CONTAINER = document.getElementById('tabela-classificacao');
