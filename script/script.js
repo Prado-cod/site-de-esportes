@@ -1,11 +1,13 @@
 // script.js
 
 // ** 1. CONFIGURAÇÃO DA API **
-const API_KEY = "3fbce8b198404caf9c2d57d96b07b597"; // << COLOQUE SUA CHAVE AQUI
-const API_URL_BASE = "https://api.football-data.org/v4/competitions/PL"; // PL é o código da Premier League
+const API_KEY = "3fbce8b198404caf9c2d57d96b07b597"; 
+const API_URL_BASE = "https://api.football-data.org/v4/competitions/PL"; 
 const HEADERS = {
     'X-Auth-Token': API_KEY, 
-    'Content-Type': 'application/json' // Este é importante!
+    'Content-Type': 'application/json',
+    // ESTA É A LINHA QUE PRECISA SER ADICIONADA:
+    'User-Agent': 'MeuProjetoAcademicoPL' 
 };
 
 const TABELA_CONTAINER = document.getElementById('tabela-classificacao');
