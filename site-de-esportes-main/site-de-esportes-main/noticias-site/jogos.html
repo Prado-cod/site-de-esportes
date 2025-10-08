@@ -14,23 +14,39 @@
     <br>
     <h2>Menu</h2>
     <nav>
-      <a href="dashboard.html">Voltar</a>
+      <a href="index.html">Voltar</a>
     </nav>
   </aside>
 
   <main class="content">
-    <h1>Jogos</h1>
-    <div class="grid">
-      <div class="card red">jogos de hoje</div>
-      <div class="card cyan">jogos de amanhã</div>
+    <h1>Premier League - Classificação e Jogos</h1>
+   
+        <div class="tabela-jogos-container">
+       
+                <div class="tabela-wrapper">
+            <h2>TABELA</h2>
+            <div id="tabela-classificacao">
+                <p>Carregando Classificação...</p>
+            </div>
+        </div>
+
+                <div class="jogos-wrapper">
+            <h2>JOGOS</h2>
+            <div id="lista-jogos">
+                <p>Carregando Jogos...</p>
+            </div>
+        </div>
 
     </div>
   </main>
 
+  <script src="script.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("active");
     }
   </script>
+</body>
+
 </body>
 </html>

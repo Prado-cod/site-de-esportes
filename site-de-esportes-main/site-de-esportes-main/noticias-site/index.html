@@ -2,37 +2,42 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Perfil - Portal de Notícias</title>
-  <link rel="stylesheet" href="css/login.css">
+  <title>Dashboard - Portal de Notícias</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <button class="toggle-btn" onclick="toggleMenu()">☰</button>
 
-  <header class="container">
+  <aside class="sidebar" id="sidebar">
+    <br>
+    <br>
+    <br>
+    <h2>Menu</h2>
+    <nav>
+      <a href="login.html">Entrar</a>
+      <a href="#">Notícias</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="jogos.html">Jogos</a>
+    </nav>
+  </aside>
 
-  <div class="left">
-    <h2>Cadastre-se agora</h2>
-    <form>
-      <input type="text" placeholder="Nome completo" required>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Senha" required>
-      <input type="password" placeholder="Confirmar senha" required>
-      <input type="date" required>
-      <button type="submit">Cadastrar</button>
-    </form>
-  </div>
+  <!-- Conteúdo -->
+  <main class="content">
+    <h1>Dashboard</h1>
+    <div class="grid">
+      <div class="card red">Notícia 1</div>
+      <div class="card cyan">Notícia 2</div>
+      <div class="card cyan">Notícia 3</div>
+      <div class="card pink">Notícia 4</div>
+      <div class="card pink">Notícia 5</div>
+      <div class="card blue">Notícia 6</div>
+    </div>
+  </main>
 
-  <div class="right">
-    <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Usuário ou Email" required>
-      <input type="password" placeholder="Senha" required>
-      <button type="submit">Entrar</button>
-      <a href="dashboard.html" class="btn-voltar"> Voltar</a>
-
-    </form>
-  </div>
-
-</header>
-
-
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
 </body>
+</html>

@@ -89,3 +89,109 @@ body {
 .cyan { background: #00bcd4; }
 .pink { background: #e91e63; }
 .blue { background: #3498db; }
+
+/* style.css - Adições */
+
+/* -------------------- LAYOUT TABELA/JOGOS -------------------- */
+.tabela-jogos-container {
+    display: flex;
+    gap: 30px; /* Espaço entre a tabela e os jogos */
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+    padding-top: 20px;
+}
+
+.tabela-wrapper, .jogos-wrapper {
+    background-color: #f7f7f7; /* Cor de fundo para as colunas */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+}
+
+.tabela-wrapper {
+    flex: 2; /* Ocupa mais espaço (2 partes) */
+    min-width: 450px;
+}
+
+.jogos-wrapper {
+    flex: 1; /* Ocupa menos espaço (1 parte) */
+    min-width: 300px;
+}
+
+/* -------------------- ESTILO DA TABELA -------------------- */
+#tabela-classificacao table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+#tabela-classificacao thead th {
+    background-color: #f0f0f0;
+    text-align: left;
+    padding: 8px 5px;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+#tabela-classificacao tbody td {
+    border-bottom: 1px solid #eee;
+    padding: 10px 5px;
+    vertical-align: middle;
+}
+
+#tabela-classificacao tr:hover {
+    background-color: #fafafa;
+}
+
+.logo-time {
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* -------------------- ESTILO DOS JOGOS -------------------- */
+.partida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.partida-info {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.partida-times {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    flex-grow: 1; /* Ocupa o espaço central */
+}
+
+.time-logo {
+    height: 25px;
+    width: 25px;
+    margin: 0 10px;
+}
+
+.time-nome {
+    flex: 1;
+    text-align: right;
+    white-space: nowrap; /* Evita quebra de linha do nome */
+}
+
+.placar {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.vs {
+    margin: 0 15px;
+    color: #999;
+}
