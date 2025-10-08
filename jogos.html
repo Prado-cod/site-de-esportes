@@ -9,44 +9,109 @@
     <button class="toggle-btn" onclick="toggleMenu()">☰</button>
 
   <aside class="sidebar" id="sidebar">
-    <br>
-    <br>
-    <br>
+    <br><br>
     <h2>Menu</h2>
     <nav>
-      <a href="index.html">Voltar</a>
+     <a href="index.html">Voltar</a>
     </nav>
   </aside>
 
   <main class="content">
-    <h1>Premier League - Classificação e Jogos</h1>
-   
-        <div class="tabela-jogos-container">
-       
-                <div class="tabela-wrapper">
-            <h2>TABELA</h2>
-            <div id="tabela-classificacao">
-                <p>Carregando Classificação...</p>
-            </div>
-        </div>
+   <h1>Premier League - Classificação e Jogos</h1>
 
-                <div class="jogos-wrapper">
-            <h2>JOGOS</h2>
-            <div id="lista-jogos">
-                <p>Carregando Jogos...</p>
-            </div>
-        </div>
+<div class="tabela-jogos-container">
+    <div class="tabela-wrapper">
+     <h2>TABELA</h2>
+    <div id="tabela-classificacao"></div>
+  </div>
 
-    </div>
+    <div class="jogos-wrapper">
+    <h2>JOGOS - 9ª RODADA</h2>
+    <div id="lista-jogos"></div>
+  </div>
+</div>
   </main>
 
-  <script src="script/script.js"></script>
-  <script>
-    function toggleMenu() {
+<script>
+    // FUNÇÃO DA SIDEBAR
+     function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("active");
     }
-  </script>
-</body>
 
+    // CÓDIGO JS DA TABELA E JOGOS (ESTÁTICO)
+
+    // Dados da tabela (Classificação)
+    const times = [
+        { pos: 1, time: 'Arsenal', p: 8, w: 6, d: 2, l: 0, gf: 16, ga: 6, gd: 10, pts: 20 },
+        { pos: 2, time: 'Liverpool', p: 8, w: 6, d: 1, l: 1, gf: 18, ga: 9, gd: 9, pts: 19 },
+        { pos: 3, time: 'Tottenham', p: 8, w: 5, d: 3, l: 0, gf: 18, ga: 8, gd: 10, pts: 18 },
+        { pos: 4, time: 'Bournemouth', p: 8, w: 5, d: 2, l: 1, gf: 16, ga: 10, gd: 6, pts: 17 },
+        { pos: 5, time: 'Manchester City', p: 8, w: 5, d: 2, l: 1, gf: 17, ga: 12, gd: 5, pts: 17 },
+        { pos: 6, time: 'Chelsea', p: 8, w: 4, d: 2, l: 2, gf: 14, ga: 10, gd: 4, pts: 14 },
+        { pos: 7, time: 'Crystal Palace', p: 8, w: 4, d: 2, l: 2, gf: 12, ga: 9, gd: 3, pts: 14 },
+        { pos: 8, time: 'Everton', p: 8, w: 4, d: 1, l: 3, gf: 13, ga: 11, gd: 2, pts: 13 },
+        { pos: 9, time: 'Sunderland', p: 8, w: 3, d: 2, l: 3, gf: 11, ga: 12, gd: -1, pts: 11 },
+        { pos: 10, time: 'Newcastle', p: 8, w: 3, d: 2, l: 3, gf: 10, ga: 11, gd: -1, pts: 11 },
+        { pos: 11, time: 'Aston Villa', p: 8, w: 3, d: 1, l: 4, gf: 12, ga: 14, gd: -2, pts: 10 },
+        { pos: 12, time: 'Fulham', p: 8, w: 2, d: 3, l: 3, gf: 10, ga: 13, gd: -3, pts: 9 },
+        { pos: 13, time: 'Leeds United', p: 8, w: 2, d: 3, l: 3, gf: 9, ga: 12, gd: -3, pts: 9 },
+        { pos: 14, time: 'Brighton', p: 8, w: 2, d: 2, l: 4, gf: 10, ga: 14, gd: -4, pts: 8 },
+        { pos: 15, time: 'Brentford', p: 8, w: 2, d: 2, l: 4, gf: 9, ga: 13, gd: -4, pts: 8 },
+        { pos: 16, time: 'Burnley', p: 8, w: 2, d: 1, l: 5, gf: 8, ga: 14, gd: -6, pts: 7 },
+        { pos: 17, time: 'Southampton', p: 8, w: 1, d: 3, l: 4, gf: 7, ga: 13, gd: -6, pts: 6 },
+        { pos: 18, time: 'West Ham', p: 8, w: 1, d: 2, l: 5, gf: 6, ga: 14, gd: -8, pts: 5 },
+        { pos: 19, time: 'Wolverhampton', p: 8, w: 1, d: 1, l: 6, gf: 5, ga: 15, gd: -10, pts: 4 },
+        { pos: 20, time: 'Manchester United', p: 8, w: 1, d: 1, l: 6, gf: 4, ga: 16, gd: -12, pts: 4 }
+    ];
+
+    const tabela = document.getElementById('tabela-classificacao');
+    tabela.innerHTML = `
+        <table class="tabela-premier">
+            <thead>
+                <tr>
+                    <th>#</th><th>Time</th><th>P</th><th>W</th><th>D</th><th>L</th>
+                    <th>GF</th><th>GA</th><th>GD</th><th>PTS</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${times.map(t => `
+                    <tr>
+                        <td>${t.pos}</td><td>${t.time}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td>
+                        <td>${t.l}</td><td>${t.gf}</td><td>${t.ga}</td><td>${t.gd}</td><td><strong>${t.pts}</strong></td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+
+    // Jogos da 9ª rodada
+    const jogos = [
+        { data: '10/10 - Sábado - 08:30', partida: 'Nottingham Forest vs Chelsea' },
+        { data: '10/10 - Sábado - 11:00', partida: 'Everton vs Southampton' },
+        { data: '10/10 - Sábado - 11:00', partida: 'Burnley vs Brighton' },
+        { data: '10/10 - Sábado - 11:00', partida: 'Crystal Palace vs Bournemouth' },
+        { data: '10/10 - Sábado - 11:00', partida: 'Manchester City vs Newcastle' },
+        { data: '10/10 - Sábado - 11:00', partida: 'Sunderland vs West Ham' },
+        { data: '10/10 - Sábado - 13:30', partida: 'Fulham vs Arsenal' },
+        { data: '10/10 - Sábado - 16:00', partida: 'Tottenham vs Aston Villa' },
+        { data: '11/10 - Domingo - 11:00', partida: 'Liverpool vs Manchester United' },
+        { data: '11/10 - Domingo - 13:30', partida: 'Leeds United vs Brentford' }
+    ];
+
+    const listaJogos = document.getElementById('lista-jogos');
+    listaJogos.innerHTML = jogos.map(j => `
+        <div class="partida">
+            <div class="partida-times">
+                <span class="time-nome">${j.partida.split(' vs ')[0].trim()}</span>
+                <span class="vs">X</span>
+                <span class="time-nome" style="text-align: left;">${j.partida.split(' vs ')[1].trim()}</span>
+            </div>
+            <div style="text-align: right;">
+                <span class="partida-info">${j.data.split(' - ')[0]} - ${j.data.split(' - ')[1]}</span>
+                <div class="partida-info">${j.data.split(' - ')[2]}</div>
+            </div>
+        </div>
+    `).join('');
+</script>
 </body>
 </html>

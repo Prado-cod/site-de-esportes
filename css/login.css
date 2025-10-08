@@ -1,3 +1,12 @@
+/* -------------------- VARIÁVEIS DE COR -------------------- */
+:root {
+  --cor-primaria: #1abc9c; /* Verde Esmeralda */
+  --cor-texto-escuro: #2c3e50;
+  --cor-fundo-login-contraste: #16a085; /* Verde mais escuro */
+  --sombra-login: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* -------------------- RESET -------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +14,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f4f4;
   display: flex;
   justify-content: center;
@@ -13,121 +22,136 @@ body {
   height: 100vh;
 }
 
+/* -------------------- CONTAINER PRINCIPAL -------------------- */
 .container {
   display: flex;
-  width:75%;
-  height: 750px;
-  max-width: 95%;
+  width: 90%;
+  max-width: 1100px;
+  height: 650px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: var(--sombra-login);
 }
 
+/* -------------------- LADO ESQUERDO (CADASTRO) -------------------- */
 .left {
   flex: 1;
-  background: #126a36;
+  background: var(--cor-fundo-login-contraste);
   color: white;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .left h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
+  font-size: 1.8em;
 }
 
-.left form input {
-  width: 60%;
-  padding: 12px;
-  margin: 8px auto;
-  border: none;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  display: block;
+.left form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.left form input {
+  width: 80%;
+  max-width: 400px;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--cor-texto-escuro);
+  font-size: 1em;
+}
+
 .left form button {
-  width: 60%;
-  padding: 12px;
-  margin: 15px auto 0 auto;
+  width: 80%;
+  max-width: 400px;
+  padding: 14px;
+  margin-top: 20px;
   border: none;
   border-radius: 5px;
-  background: #333;
+  background: var(--cor-primaria);
   color: white;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
-  display: block;
+  font-size: 1.1em;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .left form button:hover {
-  background: #555;
+  background: #16a085;
 }
 
+/* -------------------- LADO DIREITO (LOGIN) -------------------- */
 .right {
   flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .right h2 {
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 30px;
+  color: var(--cor-texto-escuro);
   text-align: center;
+  font-size: 1.8em;
+}
+
+.right form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .right form input {
-  width: 60%;
-  padding: 12px;
-  margin: 8px auto;
-  border: 1px solid #000000;
+  width: 80%;
+  max-width: 400px;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  display: block;
+  font-size: 1em;
 }
 
 .right form button {
-  width: 60%;
-  padding: 12px;
-  margin: 15px auto 0 auto;
+  width: 80%;
+  max-width: 400px;
+  padding: 14px;
+  margin-top: 15px;
   border: none;
   border-radius: 5px;
-  background: #333;
-  color: rgb(255, 255, 255);
+  background: var(--cor-texto-escuro);
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
-  display: block;
+  font-size: 1.1em;
 }
 
 .right form button:hover {
   background: #555;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  .left, .right {
-    flex: none;
-    width: 100%;
-  }
-}
-
+/* -------------------- BOTÃO VOLTAR -------------------- */
 .btn-voltar {
-  width: 60%;
-  height: 40px;
+  width: 80%;
+  max-width: 400px;
+  height: 45px;
   display: block;
-  margin: 10px auto;
-  border: none;
-  background: #333;
+  margin-top: 10px;
+  background: #95a5a6;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -135,10 +159,23 @@ body {
   border-radius: 5px;
   text-decoration: none;
   text-align: center;
-  line-height: 40px;
+  line-height: 45px;
+  font-weight: bold;
 }
 
 .btn-voltar:hover {
-    background: #555;
+  background: #7f8c8d;
 }
 
+/* -------------------- RESPONSIVO -------------------- */
+@media (max-width: 900px) {
+  .container {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .left, .right {
+    padding: 30px;
+  }
+}

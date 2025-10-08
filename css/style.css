@@ -1,197 +1,466 @@
+/* -------------------- GERAL E VARIÁVEIS DE COR -------------------- */
+
+:root {
+    /* Cores Profissionais para o tema Verde */
+    --cor-primaria: #1abc9c; /* Verde Esmeralda (Principal) */
+    --cor-suave: #e6f5f3; /* Verde muito claro (Fundo da Sidebar e Destaques) */
+    --cor-fundo-site: #f8fcfb; /* Branco quase cinza para fundo principal */
+    --cor-texto-escuro: #2c3e50; /* Cinza Escuro para texto principal */
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    background-color: var(--cor-fundo-site);
+    color: var(--cor-texto-escuro);
 }
 
-/* Botão */
+/* -------------------- SIDEBAR E BOTÃO -------------------- */
+
+/* Botão de Toggle */
 .toggle-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: #D0ffc4;
-  color: black;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 1001;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 0.2s;
 }
 
-/* Sidebar fechada */
+.toggle-btn:hover {
+    background-color: #16a085; 
+}
+
+/* Sidebar */
 .sidebar {
-  position: fixed;
-  left: -220px; /* escondida */
-  top: 0;
-  width: 220px;
-  height: 100vh;
-  background: #D0ffc4;
-  color: black;
-  padding: 20px;
-  transition: left 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    left: -250px; 
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: var(--cor-suave);
+    color: var(--cor-texto-escuro);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar aberta */
 .sidebar.active,
 .sidebar:hover {
-  left: 0;
+    left: 0;
 }
 
 .sidebar h2 {
-  margin-top: 0;
+    margin-top: 0;
+    font-size: 1.5em;
+    color: var(--cor-primaria);
 }
 
 .sidebar nav {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar nav a {
-  color: black;
-  text-decoration: none;
-  padding: 10px 0;
+    color: var(--cor-texto-escuro);
+    text-decoration: none;
+    padding: 12px 15px;
+    margin: 4px 0;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .sidebar nav a:hover {
-  background: #444;
-  padding-left: 5px;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding-left: 20px;
 }
 
-/* Conteúdo */
+/* Conteúdo Principal */
 .content {
-  margin-left: 60px; /* espaço mínimo */
-  padding: 20px;
-  flex: 1;
-  transition: margin-left 0.3s ease;
+    margin-left: 80px;
+    padding: 30px;
+    flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.content h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .sidebar.active ~ .content,
 .sidebar:hover ~ .content {
-  margin-left: 240px; /* empurra o conteúdo quando menu abre */
+    margin-left: 270px;
 }
 
-/* Grid de cards */
+
+/* -------------------- GRID DE CARDS (DASHBOARD) -------------------- */
+
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
 .card {
-  padding: 40px;
-  border-radius: 6px;
-  text-align: center;
-  font-weight: bold;
-  color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.2s;
 }
 
-.red { background: #e74c3c; }
-.cyan { background: #00bcd4; }
-.pink { background: #e91e63; }
-.blue { background: #3498db; }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-/* style.css - Adições */
+/* Cores dos Cards */
+.red { background: #e74c3c; } 
+.cyan { background: #3498db; }
+.pink { background: #9b59b6; }
+.blue { background: #f39c12; }
+
 
 /* -------------------- LAYOUT TABELA/JOGOS -------------------- */
+
 .tabela-jogos-container {
     display: flex;
-    gap: 30px; /* Espaço entre a tabela e os jogos */
-    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+    gap: 30px;
+    flex-wrap: wrap;
     padding-top: 20px;
 }
 
 .tabela-wrapper, .jogos-wrapper {
-    background-color: #f7f7f7; /* Cor de fundo para as colunas */
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave);
     min-height: 500px;
 }
 
 .tabela-wrapper {
-    flex: 2; /* Ocupa mais espaço (2 partes) */
+    flex: 2;
     min-width: 450px;
 }
 
 .jogos-wrapper {
-    flex: 1; /* Ocupa menos espaço (1 parte) */
+    flex: 1;
     min-width: 300px;
 }
 
-/* -------------------- ESTILO DA TABELA -------------------- */
+.tabela-wrapper h2, .jogos-wrapper h2 {
+    color: var(--cor-texto-escuro);
+    font-size: 1.4em;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* -------------------- ESTILO DA TABELA (COM JS ESTÁTICO) -------------------- */
+
 #tabela-classificacao table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9em;
+    font-size: 0.95em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Sombra interna para a tabela */
 }
 
 #tabela-classificacao thead th {
-    background-color: #f0f0f0;
+    background-color: #ecf0f1;
     text-align: left;
-    padding: 8px 5px;
-    font-weight: normal;
-    font-size: 0.8em;
+    padding: 10px 8px;
+    font-weight: 600;
+    font-size: 0.85em;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+/* Linha de cabeçalho da tabela com cor principal */
+#tabela-classificacao thead tr {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+#tabela-classificacao thead tr th {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: 700;
+}
+
+/* Destaque para a primeira coluna (posição) */
+#tabela-classificacao tbody tr td:first-child {
+    font-weight: bold;
+    color: var(--cor-primaria);
 }
 
 #tabela-classificacao tbody td {
-    border-bottom: 1px solid #eee;
-    padding: 10px 5px;
+    border-bottom: 1px solid #f4f4f4;
+    padding: 12px 8px;
     vertical-align: middle;
 }
 
 #tabela-classificacao tr:hover {
-    background-color: #fafafa;
+    background-color: var(--cor-suave);
 }
 
-.logo-time {
-    height: 18px;
-    width: 18px;
-    margin-right: 8px;
-    vertical-align: middle;
+
+/* -------------------- ESTILO DOS JOGOS (COM JS ESTÁTICO) -------------------- */
+
+.jogo-item {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #f4f4f4;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
 }
 
-/* -------------------- ESTILO DOS JOGOS -------------------- */
+.jogo-item:hover {
+    background-color: #fcfcfc;
+}
+
+.jogo-data {
+    color: #95a5a6;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.jogo-partida {
+    font-weight: bold;
+    color: var(--cor-texto-escuro);
+}
+
+/* Usando as classes de Partida para melhor compatibilidade com o JS */
 .partida {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    border-bottom: 1px solid #f4f4f4;
+    transition: background-color 0.2s;
 }
 
 .partida-info {
-    font-size: 0.8em;
-    color: #666;
-    margin-bottom: 5px;
+    font-size: 0.85em;
+    color: #95a5a6;
+    margin-bottom: 3px;
+    font-weight: 500;
 }
 
 .partida-times {
     display: flex;
     align-items: center;
     font-weight: bold;
-    flex-grow: 1; /* Ocupa o espaço central */
-}
-
-.time-logo {
-    height: 25px;
-    width: 25px;
-    margin: 0 10px;
-}
-
-.time-nome {
-    flex: 1;
-    text-align: right;
-    white-space: nowrap; /* Evita quebra de linha do nome */
-}
-
-.placar {
-    font-size: 1.1em;
-    color: #333;
-    font-weight: bold;
-    margin: 0 10px;
+    flex-grow: 1;
+    font-size: 1em;
 }
 
 .vs {
     margin: 0 15px;
-    color: #999;
+    color: #bdc3c7;
+    font-weight: normal;
+}
+
+.partida .time-nome:first-child { text-align: right; flex-basis: 40%; }
+.partida .time-nome:last-child { text-align: left; flex-basis: 40%; }
+
+
+/* -------------------- LAYOUT PERFIL ESPORTIVO (FINAL) -------------------- */
+
+.perfil-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 30px; 
+    max-width: 90%; 
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+@media (max-width: 900px) {
+    .perfil-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.perfil-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave); 
+    margin-bottom: 25px;
+}
+
+.perfil-box h2 {
+    font-size: 1.3em;
+    color: var(--cor-texto-escuro);
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--cor-suave);
+    margin-bottom: 15px;
+}
+
+.resumo-box p strong {
+    color: var(--cor-primaria);
+}
+
+.coluna-esquerda input[type="text"],
+.coluna-esquerda select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.campo-grupo label {
+    color: var(--cor-texto-escuro);
+}
+
+.btn-salvar-perfil {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--cor-primaria); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: var(--sombra-suave);
+}
+
+.btn-salvar-perfil:hover {
+    background-color: #16a085;
+}
+
+
+/* Estatísticas e Badges */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-item {
+    background-color: #f7f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--cor-primaria); 
+    font-size: 0.95em;
+}
+
+.badges-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge-item {
+    background-color: var(--cor-suave);
+    color: var(--cor-texto-escuro);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid var(--cor-primaria);
+}
+
+/* Estilo dos Botões Sociais */
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+.btn-social {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    flex: 1;
+    transition: opacity 0.2s;
+}
+
+.btn-social:hover { opacity: 0.9; }
+.twitter { background-color: #1da1f2; }
+.linkedin { background-color: #0077b5; }
+
+
+/* -------------------- LOGIN E CADASTRO (login.css não existe, então usamos o style.css) -------------------- */
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left, .right {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    background: #16a085; /* Verde escuro para fundo de contraste */
+    color: white;
+}
+
+.left h2, .right h2 {
+    color: inherit;
+    margin-bottom: 30px;
+}
+
+.left form input, .right form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.left form button { /* Botão Cadastrar (no fundo verde) */
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.right form button:first-of-type { /* Botão Entrar */
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.right form .btn-voltar { /* Botão Voltar/Link */
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #bdc3c7;
+    color: var(--cor-texto-escuro);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
 }

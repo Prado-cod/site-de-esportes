@@ -6,31 +6,104 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <body>
-    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+  <button class="toggle-btn" onclick="toggleMenu()">☰</button>
 
   <aside class="sidebar" id="sidebar">
-    <br>
-    <br>
-    <br>
+    <br><br><br>
     <h2>Menu</h2>
     <nav>
       <a href="index.html">Voltar</a>
     </nav>
   </aside>
 
-  <main class="content">
-<div class="perfil-container">
-    <h2>Editar Perfil</h2>
-    <form>
-      <input type="text" placeholder="Nome">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Nova Senha">
-      <button type="submit">Salvar Alterações</button>
-      <button type="reset" class="cancel">Cancelar</button>
-    </form>
-  </div>
-  </main>
-  
+    <main class="content">
+    <h1>Configurações do Perfil Esportivo</h1>
+
+    <div class="perfil-layout">
+        <div class="coluna-esquerda">
+            <div class="perfil-box resumo-box">
+                <h2>Resumo da Conta</h2>
+                <p><strong>Nome de Usuário:</strong> @AliceMendesPL</p>
+                <p><strong>Nome:</strong> Alice Mendes</p>
+                <p><strong>Email:</strong> teste@teste.com</p>
+                <p><strong>Membro desde:</strong> 07/Out/2025</p>
+            </div>
+
+            <div class="perfil-box preferencias-box">
+                <h2>⚽ Minhas Preferências (Premier League)</h2>
+                
+                <div class="campo-grupo">
+                    <label for="time-favorito">Time Favorito:</label>
+                    <select id="time-favorito">
+                        <option selected>Arsenal FC</option>
+                        <option>Liverpool FC</option>
+                        <option>Manchester United</option>
+                        <option>Chelsea FC</option>
+                        </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="jogador-favorito">Jogador Favorito:</label>
+                    <input type="text" id="jogador-favorito" value="Bukayo Saka" placeholder="Ex: De Bruyne">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="funcao">Área de Atuação no Site:</label>
+                    <select id="funcao">
+                        <option selected>Leitor Fiel</option>
+                        <option>Colunista Convidado</option>
+                        <option>Analista de Dados</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn-salvar-perfil">Salvar Alterações</button>
+        </div>
+
+        <div class="coluna-direita">
+            <div class="perfil-box stats-box">
+                <h2>📊 Minhas Estatísticas</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <strong>Comentários:</strong> <span>124</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Artigos Lidos:</strong> <span>568</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Previsões Acertadas:</strong> <span>72%</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Ranking Global:</strong> <span>#456</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="perfil-box social-box">
+                <h2>🌐 Redes Sociais</h2>
+                <p>Conecte suas redes para compartilhar artigos.</p>
+                <div class="social-links">
+                    <button class="btn-social twitter">Conectar X (Twitter)</button>
+                    <button class="btn-social linkedin">Conectar LinkedIn</button>
+                </div>
+            </div>
+
+            <div class="perfil-box badges-box">
+                <h2>🏆 Conquistas</h2>
+                <div class="badges-list">
+                    <span class="badge-item">🥇 Analista Ouro</span>
+                    <span class="badge-item">📰 Leitor Premium</span>
+                    <span class="badge-item">🎯 Previsão Perfeita</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
