@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogos - Portal de Notícias</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+  <aside class="sidebar" id="sidebar">
+    <br>
+    <br>
+    <br>
+    <h2>Menu</h2>
+    <nav>
+      <a href="index.html">Voltar</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Premier League - Classificação e Jogos</h1>
+   
+        <div class="tabela-jogos-container">
+       
+                <div class="tabela-wrapper">
+            <h2>TABELA</h2>
+            <div id="tabela-classificacao">
+                <p>Carregando Classificação...</p>
+            </div>
+        </div>
+
+                <div class="jogos-wrapper">
+            <h2>JOGOS</h2>
+            <div id="lista-jogos">
+                <p>Carregando Jogos...</p>
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+
+</body>
+</html>
