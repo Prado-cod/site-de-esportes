@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width:75%;
+  height: 750px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.left {
+  flex: 1;
+  background: #126a36;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.left form input {
+  width: 60%;
+  padding: 12px;
+  margin: 8px auto;
+  border: none;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left form button {
+  width: 60%;
+  padding: 12px;
+  margin: 15px auto 0 auto;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: block;
+}
+
+.left form button:hover {
+  background: #555;
+}
+
+.right {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.right form input {
+  width: 60%;
+  padding: 12px;
+  margin: 8px auto;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  display: block;
+}
+
+.right form button {
+  width: 60%;
+  padding: 12px;
+  margin: 15px auto 0 auto;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: block;
+}
+
+.right form button:hover {
+  background: #555;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .left, .right {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.btn-voltar {
+  width: 60%;
+  height: 40px;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  background: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+}
+
+.btn-voltar:hover {
+    background: #555;
+}
+
